@@ -1,0 +1,86 @@
+body {
+  background-color: rgb(190, 149, 34);
+  font-family: "Courier New", Courier, monospace;
+  box-sizing: border-box;
+}
+
+.all {
+  height: 100vh;
+
+  justify-content: center;
+  align-items: center;
+  column-gap: 30px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(190, 149, 34);
+  margin: 0 auto;
+}
+
+#todo-list {
+  display: flex;
+  flex-direction: column;
+
+  font-family: "Courier New", Courier, monospace;
+  filter: drop-shadow(5px 5px 1px #cac3c3);
+  column-gap: 10px;
+}
+
+#task-input {
+  background-color: rgba(20, 20, 20, 0.849);
+  border-color: rgb(255, 252, 252);
+  color: rgb(255, 255, 255);
+  align-items: center;
+  font-family: "Courier New", Courier, monospace;
+  border-radius: 4px;
+  padding: 15px 0px 10px 10px;
+  display: block;
+}
+
+::placeholder {
+  color: #e6e1e1;
+  align-items: center;
+  font-size: 14px;
+}
+
+#btn {
+  border-radius: 1px;
+  font-size: 18px;
+  color: rgb(235, 231, 238);
+  padding: 0px 20px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 600;
+  border-color: rgb(255, 252, 252);
+  border-radius: 4px;
+  background-color: rgba(20, 20, 20, 0.849);
+  cursor: pointer;
+}
+
+#task-list {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 30px;
+  padding: 0px;
+  align-items: end;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  background-color: #fff;
+  font: inherit;
+  color: currentColor;
+}
+
+li {
+  line-height: 30px;
+  font-family: "Courier New", Courier, monospace;
+  color: rgb(255, 255, 255);
+  display: flex;
+  text-align: center;
+
+  align-items: center;
+}
