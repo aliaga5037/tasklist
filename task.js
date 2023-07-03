@@ -1,35 +1,57 @@
 let inputs = document.getElementById("task-input");
 const list = document.getElementById("task-list");
+const form = document.getElementById("task-form");
+
+const finishTask = (e) => {
+  const listItem = e.target.parentElement;
+  const checkBox = listItem.querySelector("input[type=checkbox]");
+  if (!checkBox.checked) {
+    alert("Please check the checkbox first");
+    return;
+  }
+  checkBox.disabled = true;
+  listItem.style.textDecoration = "line-through";
+  listItem.style.color = "red";
+  e.target.remove();
+};
+
+const generateBtnCheckbox = () => {
+  const btn = document.createElement("input");
+  btn.setAttribute("type", "submit");
+
+  btn.addEventListener("click", finishTask);
+
+  return btn;
+};
+
+const generateCheckbox = () => {
+  const checkBox = document.createElement("input");
+  checkBox.setAttribute("type", "checkbox");
+
+  return checkBox;
+};
 
 function postTask() {
   const listItem = document.createElement("li");
+  let checkBox = generateCheckbox();
+  let buttonCheckbox = generateBtnCheckbox(checkBox);
+
   listItem.innerText = inputs.value;
-
-  list.appendChild(listItem);
-  let checkBox = document.createElement("input");
-  checkBox.setAttribute("type", "checkbox");
   listItem.appendChild(checkBox);
-  let buttonCheckbox = document.createElement("input");
-  buttonCheckbox.setAttribute("type", "submit");
-  buttonCheckbox.style.padding = "5px";
-  buttonCheckbox.style.borderRadius = "4px";
-  buttonCheckbox.style.backgroundColor = "rgba(20, 20, 20, 0.849)";
-  buttonCheckbox.style.color = "rgb(255, 252, 252)";
-  buttonCheckbox.addEventListener("click", () => {
-    buttonCheckbox.remove();
-    checkBox.remove();
-    listItem.style.textDecoration = "line-through";
-    listItem.style.fontWeight = "600";
-    listItem.style.fontSize = "22px";
-  });
-
   listItem.appendChild(buttonCheckbox);
+  list.appendChild(listItem);
 }
-
-let clear = document
-  .getElementById("btn")
-  .addEventListener("click", displayText);
 
 function displayText() {
   inputs.value = "";
 }
+
+form.addEventListener("submit", (e) => {
+  if (inputs.value === "") {
+    alert("Please enter a task");
+    return;
+  }
+  e.preventDefault();
+  postTask();
+  displayText();
+});

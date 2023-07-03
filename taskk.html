@@ -9,8 +9,10 @@
   <body>
     <div class="all">
       <div id="todo-list">
-        <label>New task: <input id="task-input" /></label>
-        <button onclick="postTask()" id="btn">Submit</button>
+        <form id="task-form">
+          <label>New task: <input id="task-input" /></label>
+          <button type="submit" id="btn">Submit</button>
+        </form>
       </div>
       <ol id="task-list"></ol>
     </div>
